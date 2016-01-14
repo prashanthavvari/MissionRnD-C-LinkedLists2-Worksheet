@@ -38,7 +38,6 @@ int linkedListMedian(struct node *h) {
 				x = x + 1;
 				q = q->next;
 			}
-			//printf("median=%d", q->next);
 			return q->num;
 		}
 		else
@@ -48,11 +47,9 @@ int linkedListMedian(struct node *h) {
 				x = x + 1;
 				q = q->next;
 			}
-			//printf("median=%d", q->data);
 			var = q->num;
 			if (q->next != NULL)
 				q = q->next;
-			//printf(",%d", q->num);
 			return ((var+ q->num)/2);
 		}
 	}
