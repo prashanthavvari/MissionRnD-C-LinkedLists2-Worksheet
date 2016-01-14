@@ -19,6 +19,43 @@ struct node {
 	struct node *next;
 };
 
-int linkedListMedian(struct node *head) {
+int linkedListMedian(struct node *h) {
+	if (h != NULL)
+	{
+		node *p, *q;
+		p = h;
+		q = h;
+		int i = 0, x = 0, var = 0;
+		while (p->next != NULL)
+		{
+			p = p->next;
+			i++;
+		}
+		if ((i - 1) % 2 == 1)
+		{
+			while (q->next != NULL&& x != i / 2)
+			{
+				x = x + 1;
+				q = q->next;
+			}
+			//printf("median=%d", q->next);
+			return q->num;
+		}
+		else
+		{
+			while (q->next != NULL&& x != (i - 1) / 2)
+			{
+				x = x + 1;
+				q = q->next;
+			}
+			//printf("median=%d", q->data);
+			var = q->num;
+			if (q->next != NULL)
+				q = q->next;
+			//printf(",%d", q->num);
+			return ((var+ q->num)/2);
+		}
+	}
+	else
 	return -1;
 }
